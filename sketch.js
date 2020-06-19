@@ -1,32 +1,41 @@
 let tank;
+let ground;
+
+function preload() {
+}
+
 function setup() {
   createCanvas(400, 400);
-  tank = new Tank(0, 0, 20, 10);
+  tank = new Tank(width/2, height/2, 20, 10);
 }
 
 function draw() {
   background(220);
   fill(0);
-  tank.display(); 
+  rectMode(CENTER);
+  tank.display();
+
+  //Movement keys
+
+  // w key
+  if (keyIsDown(87)) {
+  }
+  // s key
+  if (keyIsDown(83)) {
+  }
+  //d key
+  if (keyIsDown(68)) {
+    tank.a += 1
+  }
+  //a key
+  if (keyIsDown(65)) {
+    tank.a -= 1
+  }
 }
 
 let isMoving = false;
 let direction = 0;
 
-function keyTyped() {
-  if (key === 'w') {
-  }
-  if (key === 'a') {
-    isMoving = true;
-    direction = -1;
-  }
-  if (key === 's') {
-  }
-  if (key === 'd') {
-    isMoving = true;
-    direction = 1;
-  }
-}
 
 class Tank {
 
@@ -37,14 +46,17 @@ class Tank {
     this.speed = speed;
   }
 
-  move() {
-
+  move(x, y, a) {
+    this.a += a*this.speed;
+    this.x += x*this.speed;
+    this.y += y*this.speed;
   }
 
   display() {
     push();
-    translate(width/2,height/2);
-    rect(this.x, this.y, 50, 50);
+    translate(this.x,this.y);
+    rotate(radians(this.a));
+    rect(0, 0, 50, 50);
     pop();
   }
 }

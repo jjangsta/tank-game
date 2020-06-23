@@ -17,4 +17,7 @@ class Weapon {
     nozzle() {
       return rect(this.n[0], this.n[1], this.n[2], this.n[3]);
     }
+    bulletType() {
+      return ellipse(0, 0, this.b[2], this.b[2]);
+    }
   }

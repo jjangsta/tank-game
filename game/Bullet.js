@@ -1,15 +1,16 @@
 class Bullet {
-    constructor(position, angle, speed) {
+    constructor(position, angle, speed, weapon) {
       this.position = position;
       this.angle = angle;
       this.speed = speed;
+      this.weapon = weapon;
     }
 
     display() {
       push();
       translate(this.position.x,this.position.y);
-      fill('#5e5e5e');
-      ellipse(0,0,10,10);
+      this.weapon.color();
+      this.weapon.bulletType();
       pop();
     }
 

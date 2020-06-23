@@ -33,8 +33,7 @@ class Tank {
       // Chassis
       translate(0,0,1);
       fill('#1e6920');
-      var chassis = () => rect(0, 0, 50, 70);
-      chassis();
+      rect(0, 0, 50, 70);
 
       rect(0,30, 40, 10);
       line(-20,27.5,20,27.5);
@@ -82,7 +81,7 @@ class Tank {
 
     shoot() {
         var start = abs(this.weapon.n[1]);
-        bullets.push(new Bullet(createVector(this.position.x-playground.x+sin(this.turretAngle)*start,this.position.y-playground.y-cos(this.turretAngle)*start), this.turretAngle-90, 10));
+        bullets.push(new Bullet(createVector(this.position.x-playground.x+sin(this.turretAngle)*start,this.position.y-playground.y-cos(this.turretAngle)*start), this.turretAngle-90, 10, this.weapon));
     }
 
     updateShots() {
@@ -106,7 +105,7 @@ class Tank {
 
       // A key
       if ((keyIsDown(65) || keyIsDown(97)) && allowTurn === true) {
-        this.bodyAngle -= 1 * this.traverseSpeed;
+        this.bodyAngle -= this.traverseSpeed;
       }
 
       // S key
@@ -117,7 +116,7 @@ class Tank {
 
       // D key
       if ((keyIsDown(68) || keyIsDown(100)) && allowTurn === true) {
-        this.bodyAngle += 1 * this.traverseSpeed;
+        this.bodyAngle += this.traverseSpeed;
       }
 
       // MANUAL SHOOT (OLD)

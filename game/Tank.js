@@ -24,10 +24,9 @@ class Tank {
       fill('#5e5e5e');
       rect(30,0,15,75);
       rect(-30,0,15,75);
-      var i;
-      for(i = 0; i < 11; i++)
+      for(let i = 0; i < 11; i++)
         line(23,i*7-10/2*7,37,i*7-10/2*7);
-      for(i = 0; i < 11; i++)
+      for(let i = 0; i < 11; i++)
         line(-37,i*7-10/2*7,-23,i*7-10/2*7);
 
       // Chassis
@@ -52,7 +51,7 @@ class Tank {
       //Lights glow
       fill(255, 238, 0,10);
       noStroke();
-      for(i = 0; i < 10; i++) {
+      for(let i = 0; i < 10; i++) {
       arc(-17,-30,5*i,10*i,-120,-60);
       arc(17,-30,5*i,10*i,-120,-60);
       }
@@ -87,8 +86,7 @@ class Tank {
 
     updateShots() {
       //for length of bullet array
-      var i;
-      for(i = 0; i < bullets.length; i++) {
+      for(let i = 0; i < bullets.length; i++) {
           bullets[i].display();
           bullets[i].update();
       }
